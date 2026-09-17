@@ -1,0 +1,47 @@
+% !Mode:: "TeX:UTF-8"
+% 由 tjumain.tex 在导言区（setup/package 之后）载入。
+% 这里集中放置从原报告迁移过来的表格、图题、列表等版式定义，
+% 不改动模板自身的封面与章节格式。
+% 注意：caption 宏包的全局 \captionsetup 只能在导言区使用。
+
+%%%%%%%%%% 表格配色（与原报告一致） %%%%%%%%%%
+\definecolor{WordTableHeader}{HTML}{E5E9EC}
+\definecolor{WordTableStripe}{HTML}{F6F7F8}
+\definecolor{TableTotal}{HTML}{DDE2E6}
+\definecolor{TableText}{HTML}{202428}
+\definecolor{WordTableRule}{HTML}{8A939B}
+\definecolor{WordHeaderFooter}{HTML}{556B7A}   % 页眉页脚灰色
+\definecolor{WordTocBlue}{HTML}{143D59}        % 目录一级标题蓝色
+
+%%%%%%%%%% 图表题注 %%%%%%%%%%
+% 与原报告一致：图题在下、表题在上，9.5 pt，居中；图题常规、表题加粗。
+\DeclareCaptionFont{wordfigcaption}{\color{black}\fontsize{9.5pt}{11.5pt}\selectfont}
+\DeclareCaptionFont{wordtabcaption}{\bfseries\color{TableText}\fontsize{9.5pt}{12pt}\selectfont}
+\captionsetup{labelsep=space,justification=centering,singlelinecheck=false,skip=8pt}
+\captionsetup[figure]{font=wordfigcaption,position=bottom}
+\captionsetup[table]{font=wordtabcaption,position=top,skip=10pt}
+\captionsetup[longtable]{font=wordtabcaption,position=top,skip=10pt}
+
+%%%%%%%%%% 表格整体版式 %%%%%%%%%%
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.24}
+\setlength{\extrarowheight}{1.3pt}
+\setlength{\LTpre}{10pt}
+\setlength{\LTpost}{12pt}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\arrayrulecolor{WordTableRule}
+\newcommand{\TableHeaderText}[1]{{\color{TableText}\bfseries\wuhao #1}}
+\AtBeginEnvironment{longtable}{\color{TableText}\fontsize{9pt}{12.6pt}\selectfont}
+
+%%%%%%%%%% 原报告中的自定义命令 %%%%%%%%%%
+\newcommand{\NumberedPara}[2]{%
+  \par\noindent\hangindent=2.45em\hangafter=1%
+  \textbf{#1.\ }#2\par
+}
+\providecommand{\pandocbounded}[1]{\resizebox{\linewidth}{!}{#1}}
+
+%%%%%%%%%% 列表版式 %%%%%%%%%%
+\setlist[enumerate,1]{label=\arabic*.,leftmargin=2.35em,labelsep=.55em,itemsep=.25em,topsep=.35em,parsep=0pt}
+\setlist[enumerate,2]{label=\alph*.,leftmargin=2.2em,labelsep=.5em,itemsep=.2em,topsep=.25em,parsep=0pt}
+\setlist[itemize]{leftmargin=2.2em,labelsep=.55em,itemsep=.2em,topsep=.3em,parsep=0pt}

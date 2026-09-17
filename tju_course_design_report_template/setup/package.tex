@@ -12,8 +12,6 @@
 \usepackage{titlesec}                       % 控制标题的宏包
 \usepackage{titletoc}                       % 控制目录的宏包
 \usepackage{fancyhdr}                       % fancyhdr宏包 支持页眉和页脚的相关定义
-\usepackage[UTF8]{ctex}                     % 支持中文显示
-\usepackage{CJKpunct}
 \usepackage{color}                          % 支持彩色
 \usepackage{amsmath}                        % AMSLaTeX宏包 用来排出更加漂亮的公式
 \usepackage{amssymb}                        % 数学符号生成命令
@@ -22,23 +20,24 @@
 \usepackage{booktabs}                       % 表格，横的粗线；\specialrule{1pt}{0pt}{0pt}
 \usepackage{longtable}                      % 支持跨页的表格。
 \usepackage{tabularx}                       % 自动设置表格的列宽
-\usepackage{subfigure}                      % 支持子图 %centerlast 设置最后一行是否居中
-\usepackage[subfigure]{ccaption}            % 支持子图的中文标题
+% \usepackage{subfigure}                      % 支持子图（迁移后报告未使用，改用 caption 宏包）
+\usepackage{float}                          % 支持 [H] 固定位置图表
+\usepackage{caption}                        % 图表题注格式（替代 ccaption）
+\usepackage{etoolbox}                       % 提供 \AtBeginEnvironment 等
+\usepackage{eso-pic}                        % 提供 \AddToShipoutPictureBG（整页背景封面）
+\usepackage{lastpage}                       % 提供 \pageref{LastPage}（页脚“共 N 页”）
 \usepackage[sort&compress,numbers]{natbib}  % 支持引用缩写的宏包
 \usepackage{enumitem}                       % 使用enumitem宏包,改变列表项的格式
 \usepackage{calc}                           % 长度可以用+ - * / 进行计算
-\usepackage{txfonts}                        % 字体宏包
 \usepackage{bm}                             % 处理数学公式中的黑斜体的宏包
 \usepackage[amsmath,thmmarks,hyperref]{ntheorem}  % 定理类环境宏包，其中 amsmath 选项用来兼容 AMS LaTeX 的宏包
-\usepackage{CJKnumb}                        % 提供将阿拉伯数字转换成中文数字的命令
 \usepackage{indentfirst}                    % 首行缩进宏包
-\usepackage{CJKutf8}                        % 用在UTF8编码环境下，它可以自动调用CJK，同时针对UTF8编码作了设置
 
 % \usepackage{fancybox} 
 
 %\usepackage{hypbmsec}                      % 用来控制书签中标题显示内容
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}                  % 提供 \rowcolor / \rowcolors 等表格底色命令
 %支持代码环境
 \usepackage{listings}
 \lstset{numbers=left,
@@ -64,16 +63,12 @@ rulesepcolor=\color{red!20!green!20!blue!20}
 \newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
 \newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
 
-% 生成有书签的 pdf 及其生成方式。通常可以在 tjumain.tex 文件的第一行选择 pdflatex 或者是 dvipdfmx 编译手段。如果选择前者，则使用 pdflatex + pdflatex 编译; 如果选择后者，在编译的时候选择 latex + bibtex + latex + latex 编译。出现混淆的时候，系统会报错。
-% 如果您的pdf制作中文书签有乱码使用如下命令，就可以解决了
-\def\atemp{pdflatex}\ifx\atemp\usewhat
-\usepackage{cmap}                           % pdflatex 编译时，可以生成可复制、粘贴的中文 PDF 文档， 缺点是在Windows上显示时效果不大好，字体发虚
+% 生成有书签的 pdf。使用 xelatex（xeCJK）编译，无需 cmap。
 \usepackage{hyperref}
 \hypersetup{
     unicode,
     pdfborder={0 0 0},
 }
-\fi
 % \usepackage[pdftex,unicode,
 %             CJKbookmarks=true,
 %             bookmarksnumbered=true,

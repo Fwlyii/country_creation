@@ -1,14 +1,8 @@
 % !Mode:: "TeX:UTF-8"
 
-% 目录
+% 目录。与原报告一致：封面不编号，目录与正文连续编号（不切换罗马数字）。
 \defaultfont
-\clearpage{
-    \pagestyle{empty}
-    \cleardoublepage
-    \setcounter{page}{1}                                 % 单独从 1 开始编页码
-    \pagenumbering{arabic}
-    \titleformat{\chapter}{\centering\sanhao\hei}{\chaptername}{2em}{} % 设置目录两字的格式
-    \pdfbookmark[0]{目~~录}{mulu}
-    \tableofcontents                                     % 中文目录
-    \thispagestyle{plain}
-}
+\clearpage
+\pdfbookmark[0]{目录}{mulu}
+\tableofcontents                                     % 中文目录
+\clearpage

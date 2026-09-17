@@ -1,0 +1,9 @@
+# 模板基于 xeCJK（字体为原报告的 Aptos + 微软雅黑），必须用 xelatex 编译。
+$pdf_mode = 5;
+$xelatex = 'xelatex -interaction=nonstopmode -halt-on-error -file-line-error %O %S';
+$out_dir = 'build';
+$aux_dir = 'build';
+$max_repeat = 5;
+$bibtex_use = 0;
+
+@default_files = ('main.tex');
