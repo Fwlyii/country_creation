@@ -1,0 +1,25 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+% !TeX root = main.tex
+\documentclass[UTF8,a4paper,12pt]{ctexart}
+
+\input{setup/package}
+\input{setup/info}
+\input{setup/format}
+\graphicspath{{figures/}}
+
+\begin{document}
+\makecover
+\input{setup/toc}
+
+% 正文按章节拆分，内容顺序与原 main.tex 完全一致。
+\input{body/chapter1}
+\input{body/chapter2}
+\input{body/chapter3}
+\input{body/chapter4}
+\input{body/chapter5}
+\input{body/chapter6}
+\input{body/chapter7}
+\input{body/chapter8}
+\input{body/appendix}
+\end{document}
