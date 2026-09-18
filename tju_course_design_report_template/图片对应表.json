@@ -1,0 +1,274 @@
+[
+  {
+    "figure": "1-1",
+    "caption": "评分标准、计划书位置与证据编号对应图",
+    "supplied": "PI OS项目评分标准与证明材料对应关系.png",
+    "original_images": [],
+    "generated_diagram": false,
+    "note": "注：本图为所供图稿的概览示意，部分章节与编号连线采用简化表达。个人成长对应 M/T/E/V 系列，团队协作对应第 8.1 节，实现成效对应第 2.3 节、第 5 章及第 6 章，项目分析对应第 4 章；完整对应关系以表 1-1 为准。"
+  },
+  {
+    "figure": "2-1",
+    "caption": "项目形成过程与学生参与链条图",
+    "supplied": "0b1fe0bf-4798-44e7-90e7-446bb3bd81c0.png",
+    "original_images": [],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "2-2",
+    "caption": "OH 俱乐部“培训—研究—反馈”运行机制图",
+    "supplied": "145d6755-75c1-40cb-8515-0ad37ec2614d.png",
+    "original_images": [],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "2-3",
+    "caption": "学生能力成长矩阵图",
+    "supplied": null,
+    "original_images": [],
+    "generated_diagram": true,
+    "note": null
+  },
+  {
+    "figure": "2-4",
+    "caption": "学生成长过程证据编号与流转关系图",
+    "supplied": null,
+    "original_images": [],
+    "generated_diagram": true,
+    "note": null
+  },
+  {
+    "figure": "3-1",
+    "caption": "智能体任务中 LLM 与工具的交替调用流程",
+    "supplied": "37c1c007-2c3b-4f2d-82f5-082d034f3334.png",
+    "original_images": [
+      "media/image8.png"
+    ],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "3-2",
+    "caption": "典型智能体任务的资源画像",
+    "supplied": "cee0bf55-b078-44df-b086-ad3268cd25e6.png",
+    "original_images": [
+      "media/image9.png"
+    ],
+    "generated_diagram": false,
+    "note": "注：(a) 为六类典型负载的原始资源观测；(b) 为所供图稿中的四类资源需求示意，不表示实测数值，不替代原始观测。"
+  },
+  {
+    "figure": "3-3",
+    "caption": "单实例运行过程中的内存构成",
+    "supplied": null,
+    "original_images": [
+      "media/image10.png"
+    ],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "3-4",
+    "caption": "PI OS 运行时扁平化系统架构",
+    "supplied": "6cbbceb2-5725-4ecc-bb35-63e7f648f182.png",
+    "original_images": [
+      "media/image11.png"
+    ],
+    "generated_diagram": false,
+    "note": "注：(a) 为项目组件职责架构；(b) 为所供图稿的分层概览，组件协同与边界以本节说明为准。"
+  },
+  {
+    "figure": "3-5",
+    "caption": "单实例 CPU 与内存使用时序",
+    "supplied": null,
+    "original_images": [
+      "media/image12.png"
+    ],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "3-6",
+    "caption": "PI OS 动态资源卸载与恢复流程",
+    "supplied": "4d51f7bc-f572-411e-9810-acdd807ad8cb.png",
+    "original_images": [
+      "media/image13.png"
+    ],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "3-7",
+    "caption": "不同数据集下的内存占用对比",
+    "supplied": null,
+    "original_images": [
+      "media/image14.png",
+      "media/image15.png"
+    ],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "3-8",
+    "caption": "传统沙箱实例中的重复状态占用",
+    "supplied": null,
+    "original_images": [
+      "media/image16.png"
+    ],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "4-1",
+    "caption": "一手调研对象构成与需求分布图",
+    "supplied": "5b56a24b-11f6-4315-802b-f213eb7cd86d.png",
+    "original_images": [],
+    "generated_diagram": false,
+    "note": "注：本图仅概括调研对象类别与需求方向，不表示访谈频次或统计比例；访谈数量、身份和量化信息以表 4-7 及原始记录核实结果为准。"
+  },
+  {
+    "figure": "4-2",
+    "caption": "企业需求、技术机制与证据材料映射图",
+    "supplied": "f072304c-a10a-478c-9145-79919ca75e5b.png",
+    "original_images": [],
+    "generated_diagram": false,
+    "note": "注：连线仅表示需求与机制的示意联系，不表示已完成验证或覆盖程度；机制状态与证据范围以表 4-8 为准。"
+  },
+  {
+    "figure": "4-3",
+    "caption": "企业采购决策链、部署周期与项目介入点图",
+    "supplied": null,
+    "original_images": [],
+    "generated_diagram": true,
+    "note": null
+  },
+  {
+    "figure": "5-1",
+    "caption": "三级质量评审流程",
+    "supplied": "图 5-1 三级质量评审流程.png",
+    "original_images": [
+      "media/image17.png"
+    ],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "5-2",
+    "caption": "创业初期里程碑推进安排",
+    "supplied": "图 5-2 创业初期里程碑推进安排.png",
+    "original_images": [
+      "media/image18.png"
+    ],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "5-3",
+    "caption": "创业初期拟定管理架构",
+    "supplied": null,
+    "original_images": [
+      "media/image19.png"
+    ],
+    "generated_diagram": false,
+    "note": null,
+    "replacement_source": "用户于 2026-09-19 本轮上传的组织架构图",
+    "replacement_asset": "figures/updated-5-3.png",
+    "replacement_sha256": "d96229567b22125bf858d21244097bc9e9f1cf3a1ae007053365ebb64a2327f2"
+  },
+  {
+    "figure": "5-4",
+    "caption": "创业发展及成熟期拟定管理架构",
+    "supplied": "图 5-4 创业发展及成熟期拟定管理架构.png",
+    "original_images": [
+      "media/image20.png"
+    ],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "6-1",
+    "caption": "2027—2029 年收入结构演进图",
+    "supplied": null,
+    "original_images": [
+      "media/image21.png"
+    ],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "6-2",
+    "caption": "三年收入、经营成本与结余趋势图",
+    "supplied": null,
+    "original_images": [
+      "media/image22.png"
+    ],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "6-3",
+    "caption": "首轮资金需求形成图",
+    "supplied": null,
+    "original_images": [
+      "media/image23.png"
+    ],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "7-1",
+    "caption": "PI OS 与主要竞争方案的定位对比",
+    "supplied": "图 7-1 PI OS 与主要竞争方案的定位对比.png",
+    "original_images": [
+      "media/image24.png"
+    ],
+    "generated_diagram": false,
+    "note": "注：本图为方案定位示意，坐标与位置不表示第三方量化测评结果。"
+  },
+  {
+    "figure": "7-2",
+    "caption": "多租户数据与状态隔离边界",
+    "supplied": "图 7-2 多租户数据与状态隔离边界.png",
+    "original_images": [
+      "media/image25.png"
+    ],
+    "generated_diagram": false,
+    "note": null
+  },
+  {
+    "figure": "8-1",
+    "caption": "团队能力互补结构图",
+    "supplied": "8-1PI OS高密部署智能体沙箱引擎项目组织与研发体系.png",
+    "original_images": [
+      "media/image26.png"
+    ],
+    "generated_diagram": false,
+    "note": "注：图中分组为所供图稿的工作模块概览；成员学籍、现阶段职责与实际交付物以表 8-1 和表 8-3 为准。"
+  },
+  {
+    "figure": "8-2",
+    "caption": "成员贡献、证据编号与复核关系图",
+    "supplied": null,
+    "original_images": [],
+    "generated_diagram": true,
+    "note": null
+  },
+  {
+    "figure": "8-3",
+    "caption": "项目角色与成果归属边界图",
+    "supplied": null,
+    "original_images": [],
+    "generated_diagram": true,
+    "note": null
+  },
+  {
+    "figure": "A-1",
+    "caption": "证明材料证据强度分层图",
+    "supplied": null,
+    "original_images": [],
+    "generated_diagram": true,
+    "note": null
+  }
+]

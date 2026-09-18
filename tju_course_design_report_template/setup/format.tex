@@ -1,131 +1,113 @@
 % !Mode:: "TeX:UTF-8"
-% 天津大学软件学院《专业课程设计2》结课报告 —— 版式定义（迁移版）
+% 天津大学软件学院《专业课程设计2》结课报告 —— 版式定义
 %
-% 版式与《高密部署智能体沙箱引擎技术解决方案》原报告 PDF 保持一致：
-%   中文微软雅黑 / 西文 Aptos（与原报告相同的字体），标题 18pt / 14pt / 11.5pt 加粗左对齐，
-%   正文 10.5pt、1.45 倍行距、首行缩进 2 字符，灰色页眉页脚，封面为原报告整页海报。
-%   因此必须使用 xelatex（xeCJK）编译；页码与原报告一致，封面后连续编号。
+% 版式取自天大课程设计报告模板的 setup/format.tex：
+%   正文宋体 12 pt、1.5 倍行距、首行缩进 2 字符；
+%   「目录」三号黑体居中；章标题小三黑体居中（「第X章」+ 2em + 标题）；
+%   节/小节标题四号黑体；图表编号为「图 3-1」「表 6-1」，题注五号宋体；
+%   页眉「天津大学软件学院 20XX 年《专业课程设计2》结课报告」+ 0.5 pt 横线，
+%   页脚为小五宋体页码；目录用罗马数字编页，正文自 1 起用阿拉伯数字编页。
+%   封面沿用原报告整页海报图（见文件末尾的 \makecover）。
+%
+% 中文由 xeCJK 指定（宋体/黑体/楷体/仿宋），因此必须用 xelatex 编译。
 
-%%%%%%%%%%%%%%%%% 字体 %%%%%%%%%%%%%%%%%
-\IfFontExistsTF{Aptos}
-  {\setmainfont{Aptos}}
-  {\IfFontExistsTF{Times New Roman}
-    {\setmainfont{Times New Roman}}
+%%%%%%%%%%%%%%%%% 西文与中文字体 %%%%%%%%%%%%%%%%%
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\IfFontExistsTF{TeX Gyre Termes}
+    {\setmainfont{TeX Gyre Termes}}
     {\setmainfont{Latin Modern Roman}}}
 
-% 模板沿用的 \song \hei \kai \fs \li 字体切换命令统一映射到原报告所用字体族。
-\IfFontExistsTF{Microsoft YaHei}
-  {%
-    \setCJKmainfont{Microsoft YaHei}%
-    \setCJKsansfont{Microsoft YaHei}%
-    \setCJKmonofont{Microsoft YaHei}%
-    \newCJKfontfamily\song{Microsoft YaHei}%
-    \newCJKfontfamily\hei{Microsoft YaHei}%
-    \newCJKfontfamily\kai{Microsoft YaHei}%
-    \newCJKfontfamily\fs{Microsoft YaHei}%
-    \newCJKfontfamily\li{Microsoft YaHei}%
-  }
-  {%
-    \setCJKmainfont{FandolSong}%
-    \setCJKsansfont{FandolHei}%
-    \setCJKmonofont{FandolFang}%
-    \newCJKfontfamily\song{FandolSong}%
-    \newCJKfontfamily\hei{FandolHei}%
-    \newCJKfontfamily\kai{FandolKai}%
-    \newCJKfontfamily\fs{FandolFang}%
-    \newCJKfontfamily\li{FandolHei}%
-  }
+% 模板沿用 \song \hei \kai \fs \li 五个字体切换命令，这里映射到宋体/黑体/楷体/仿宋，
+% 字体缺失时回退到 Fandol 系列（随 TeX 发行版提供）。
+% 宋体/仿宋无独立粗体字面，正文中的 \textbf 用 AutoFakeBold 加粗。
+\IfFontExistsTF{SimSun}{\setCJKmainfont[AutoFakeBold=1]{SimSun}}{\setCJKmainfont{FandolSong}}
+\IfFontExistsTF{SimHei}{\setCJKsansfont{SimHei}}{\setCJKsansfont{FandolHei}}
+\IfFontExistsTF{FangSong}{\setCJKmonofont[AutoFakeBold=1]{FangSong}}{\setCJKmonofont{FandolFang}}
+
+\IfFontExistsTF{SimSun}{\newCJKfontfamily\song[AutoFakeBold=1]{SimSun}}{\newCJKfontfamily\song{FandolSong}}
+\IfFontExistsTF{SimHei}{\newCJKfontfamily\hei{SimHei}}{\newCJKfontfamily\hei{FandolHei}}
+\IfFontExistsTF{KaiTi}{\newCJKfontfamily\kai{KaiTi}}{\newCJKfontfamily\kai{FandolKai}}
+\IfFontExistsTF{FangSong}{\newCJKfontfamily\fs[AutoFakeBold=1]{FangSong}}{\newCJKfontfamily\fs{FandolFang}}
+\IfFontExistsTF{LiSu}{\newCJKfontfamily\li{LiSu}}{\newCJKfontfamily\li{FandolHei}}
 
 %%%%%%%%%%%%%%%%% 字号定义 %%%%%%%%%%%%%%%%%
-\newcommand{\yihao}{\fontsize{26pt}{26pt}\selectfont}       % 一号
-\newcommand{\xiaoyi}{\fontsize{24pt}{24pt}\selectfont}      % 小一
-\newcommand{\erhao}{\fontsize{22pt}{27.5pt}\selectfont}     % 二号
-\newcommand{\xiaoer}{\fontsize{18pt}{18pt}\selectfont}      % 小二
-\newcommand{\sanhao}{\fontsize{16pt}{16pt}\selectfont}      % 三号
-\newcommand{\xiaosan}{\fontsize{15pt}{15pt}\selectfont}     % 小三
-\newcommand{\sihao}{\fontsize{14pt}{14pt}\selectfont}       % 四号
-\newcommand{\xiaosi}{\fontsize{12pt}{12pt}\selectfont}      % 小四
-\newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}   % 五号
-\newcommand{\xiaowu}{\fontsize{9pt}{9pt}\selectfont}        % 小五
+\newcommand{\yihao}{\fontsize{26pt}{26pt}\selectfont}       % 一号, 单倍行距
+\newcommand{\xiaoyi}{\fontsize{24pt}{24pt}\selectfont}      % 小一, 单倍行距
+\newcommand{\erhao}{\fontsize{22pt}{1.25\baselineskip}\selectfont}   % 二号, 1.25倍行距
+\newcommand{\xiaoer}{\fontsize{18pt}{18pt}\selectfont}      % 小二, 单倍行距
+\newcommand{\sanhao}{\fontsize{16pt}{16pt}\selectfont}      % 三号, 单倍行距
+\newcommand{\xiaosan}{\fontsize{15pt}{15pt}\selectfont}     % 小三, 单倍行距
+\newcommand{\sihao}{\fontsize{14pt}{14pt}\selectfont}       % 四号, 单倍行距
+\newcommand{\xiaosi}{\fontsize{12pt}{12pt}\selectfont}      % 小四, 单倍行距
+\newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}   % 五号, 单倍行距
+\newcommand{\xiaowu}{\fontsize{9pt}{9pt}\selectfont}        % 小五, 单倍行距
 
-%%%%%%%%%%%%%%%%% 正文版式 %%%%%%%%%%%%%%%%%
-% 原报告正文：10.5 pt 字号、15.225 pt 行距（1.45 倍）、首行缩进 2 字符。
-\makeatletter
-\renewcommand\normalsize{%
-  \@setfontsize\normalsize{10.5pt}{15.225pt}%
-  \abovedisplayskip 7pt plus 2pt minus 2pt%
-  \belowdisplayskip 7pt plus 2pt minus 2pt%
-  \abovedisplayshortskip 5pt plus 2pt%
-  \belowdisplayshortskip 5pt plus 2pt minus 2pt%
-  \let\@listi\@listI}
-\makeatother
-\normalsize
-\newcommand{\defaultfont}{\normalsize}
-\setlength{\parindent}{2em}
-\setlength{\parskip}{5.5pt}
-\setlength{\emergencystretch}{3em}
+%%%%%%%%%%%%%%%%% 章节名称 %%%%%%%%%%%%%%%%%
+\newcommand\prechaptername{第}
+\newcommand\postchaptername{章}
+\renewcommand{\chaptername}{\prechaptername\CJKnumber{\thechapter}\postchaptername}
 
-\setcounter{secnumdepth}{3}                          % 章节自动编号到三级
-\setcounter{tocdepth}{2}                             % 目录收录到三级
-
-%%%%%%%%%%%%%%%%% 中文数字 %%%%%%%%%%%%%%%%%
-% 模板原先依赖 CJK 宏包的 \CJKnumber，迁移到 xeCJK 后自行实现（1–10 足够）。
+% 中文数字：模板原先依赖 CJK 宏包的 \CJKnumber，改用 xeCJK 后自行实现（1–10 足够）。
 \newcommand{\CJKnumber}[1]{%
   \if\relax\detokenize{#1}\relax\else\CJKnumeral{#1}\fi}
 \newcommand{\CJKnumeral}[1]{%
   \ifcase\numexpr#1\relax
     \or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九\or 十%
     \else #1\fi}
-% 目录中不编号章（如“证明材料”）的 \thecontentslabel 为空，此处仍提供标签命令备用。
+% 目录里章的编号：ctexbook 写入 .toc 的章号已是「第一章」形式，故原样输出；
+% 不编号的章（如「证明材料」）\thecontentslabel 为空，此时不输出编号与间隔。
 \newcommand{\ChapterTocLabel}[1]{%
-  \if\relax\detokenize{#1}\relax\else 第\CJKnumber{#1}章\quad\fi}
+  \if\relax\detokenize{#1}\relax\else#1\qquad\fi}
+
+%%%%%%%%%%%%%%%%% 正文版式 %%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand\normalsize{
+  \@setfontsize\normalsize{12pt}{12pt} % 小四对应 12 pt
+  \setlength\abovedisplayskip{4pt}
+  \setlength\abovedisplayshortskip{4pt}
+  \setlength\belowdisplayskip{\abovedisplayskip}
+  \setlength\belowdisplayshortskip{\abovedisplayshortskip}
+  \let\@listi\@listI}
+\def\defaultfont{\renewcommand{\baselinestretch}{1.5}\normalsize\selectfont} % 设置行距
+\makeatother
+\setlength{\parindent}{2em}
+\setcounter{secnumdepth}{4}
 
 %%%%%%%%%%%%% 目录 %%%%%%%%%%%%%%%%%
-\renewcommand{\contentsname}{目录}
-\titlecontents{chapter}[0pt]
-  {\vspace{4pt}\bfseries\color{WordTocBlue}\fontsize{11pt}{13pt}\selectfont}
-  {\thecontentslabel}{}          % 编号（“第X章”）由 titlesec 写入目录，此处不需再拼
-  {\hspace{0.5em}\titlerule*[0.7pc]{.}\contentspage}
-\titlecontents{section}[1.8em]
-  {\vspace{1pt}\color{black}\fontsize{9.5pt}{11.5pt}\selectfont}
-  {\thecontentslabel\quad}{}
-  {\hspace{0.5em}\titlerule*[0.7pc]{.}\contentspage}
-\titlecontents{subsection}[3.6em]
-  {\vspace{1pt}\color{black}\fontsize{9.5pt}{11.5pt}\selectfont}
-  {\thecontentslabel\quad}{}
-  {\hspace{0.5em}\titlerule*[0.7pc]{.}\contentspage}
+\renewcommand{\contentsname}{目\qquad 录}
+\setcounter{tocdepth}{1} % 控制目录深度：章 + 节（天大模板惯例）
+\titlecontents{chapter}[2em]{\vspace{.5\baselineskip}\xiaosan\song}
+             {\ChapterTocLabel{\thecontentslabel}}{}
+             {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\xiaosi\contentspage}
+\titlecontents{section}[4.2em]{\vspace{.18\baselineskip}\xiaosi\song}
+             {\thecontentslabel\quad}{}
+             {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\xiaosi\contentspage}
 
-%%%%%%%%%% 章节标题 %%%%%%%%%%%%%
-% 与原报告一致：一级 18 pt、二级 14 pt、三级 11.5 pt，加粗、左对齐。
-\renewcommand{\chaptername}{第\CJKnumber{\thechapter}章}
-\titleformat{\chapter}[hang]
-  {\hei\fontsize{18pt}{20.7pt}\selectfont\bfseries}{\chaptername}{0.6em}{}
-\titlespacing*{\chapter}{0pt}{16pt}{10pt}
-\titleformat{name=\chapter,numberless}[hang]
-  {\hei\fontsize{18pt}{20.7pt}\selectfont\bfseries}{}{0pt}{}
-\titlespacing*{name=\chapter,numberless}{0pt}{16pt}{10pt}
+%%%%%%%%%% Chapter and Section %%%%%%%%%%%%%
+\titleformat{\chapter}{\centering}{\xiaosan\song}{\chaptername}{}
+\titlespacing{\chapter}{0pt}{0.1\baselineskip}{0.8\baselineskip}
+\titleformat{name=\chapter,numberless}{\centering}{\xiaosan\song}{}{}
+\titlespacing*{name=\chapter,numberless}{0pt}{0.1\baselineskip}{0.8\baselineskip}
 
-\titleformat{\section}[hang]
-  {\hei\fontsize{14pt}{16.1pt}\selectfont\bfseries}{\thesection}{0.5em}{}
-\titlespacing*{\section}{0pt}{12pt}{7pt}
+\titleformat{\section}{\sihao\hei}{\thesection}{1em}{}
+\titlespacing{\section}{0pt}{0.15\baselineskip}{0.25\baselineskip}
 
-\titleformat{\subsection}[hang]
-  {\hei\fontsize{11.5pt}{13.225pt}\selectfont\bfseries}{\thesubsection}{0.5em}{}
-\titlespacing*{\subsection}{0pt}{8pt}{5pt}
+\titleformat{\subsection}{\sihao\hei}{\thesubsection}{1em}{}
+\titlespacing{\subsection}{0pt}{0.1\baselineskip}{0.3\baselineskip}
 
-\titleformat{\subsubsection}[hang]
-  {\hei\fontsize{10.5pt}{12pt}\selectfont\bfseries}{\thesubsubsection}{0.5em}{}
-\titlespacing*{\subsubsection}{0pt}{6pt}{4pt}
+\titleformat{\subsubsection}{\sihao\hei}{\thesubsubsection}{1em}{}
+\titlespacing{\subsubsection}{0pt}{0.05\baselineskip}{0.1\baselineskip}
 
-%%%%%%%%%% 图表与公式编号 %%%%%%%%%%%%%
-\renewcommand{\tablename}{表}
-\renewcommand{\figurename}{图}
-\renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}       % 图 3-1
-\renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}         % 表 6-1
-\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}   % 式 3-1
-% 图表题注的字体、位置由 setup/report.tex 通过 caption 宏包设置。
+%%%%%%%%%% Table, Figure and Equation %%%%%%%%%%%%%%%%%
+\renewcommand{\tablename}{表}                                     % 插表题头
+\renewcommand{\figurename}{图}                                    % 插图题头
+\renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}       % 使图编号为 7-1 的格式
+\renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}         % 使表编号为 7-1 的格式
+\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}   % 使公式编号为 7-1 的格式
+% 图表题注的字号与位置由 setup/report.tex 通过 caption 宏包设置（五号宋体）。
 
-%%%%%%%%%% 定理环境 %%%%%%%%%%%%%
+%%%%%%%%%% Theorem Environment %%%%%%%%%%%%%%%%%
 \theoremstyle{plain}
 \theorembodyfont{\song\rmfamily}
 \theoremheaderfont{\hei\rmfamily}
@@ -142,32 +124,31 @@
 \newenvironment{proof}{\noindent{\hei 证明：}}{\hfill $ \square $ \vskip 4mm}
 \theoremsymbol{$\square$}
 
-%%%%%%%%%% 页码：与原报告一致，封面不编号，目录与正文连续编号 %%%%%%%%%%%%
+%%%%%%%%%% 页码：目录罗马数字，正文阿拉伯数字 %%%%%%%%%%%%
 \makeatletter
 \renewcommand\frontmatter{\clearpage\@mainmatterfalse}
 \renewcommand\mainmatter{\clearpage\@mainmattertrue}
 \makeatother
 
 %%%%%%%%%% 页眉页脚 %%%%%%%%%%%%%
+% 正文：五号宋体页眉 + 0.5 pt 横线，页脚小五宋体页码。
 \makeatletter
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[C]{{\color{WordHeaderFooter}\fontsize{8pt}{10pt}\selectfont\@cheading}}
-\fancyfoot[C]{{\color{WordHeaderFooter}\fontsize{8pt}{10pt}\selectfont
-  第 \thepage\ 页\quad 共 \pageref{LastPage}\ 页}}
-\renewcommand{\headrulewidth}{0pt}
+\fancyhead[C]{\song\wuhao\@cheading}
+\fancyfoot[C]{\song\xiaowu~\thepage~}
+\renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0pt}
-% 章节首页（plain 样式）同样显示页眉，与原报告一致。
+% 章首页（plain 样式）与正文一致。
 \fancypagestyle{plain}{%
   \fancyhf{}%
-  \fancyhead[C]{{\color{WordHeaderFooter}\fontsize{8pt}{10pt}\selectfont\@cheading}}%
-  \fancyfoot[C]{{\color{WordHeaderFooter}\fontsize{8pt}{10pt}\selectfont
-    第 \thepage\ 页\quad 共 \pageref{LastPage}\ 页}}%
-  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhead[C]{\song\wuhao\@cheading}%
+  \fancyfoot[C]{\song\xiaowu~\thepage~}%
+  \renewcommand{\headrulewidth}{0.5pt}%
   \renewcommand{\footrulewidth}{0pt}}
 \makeatother
 
-%%%%%%%%%%%% 参考文献 %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% References %%%%%%%%%%%%%%%%%
 \renewcommand{\bibname}{参考文献}
 \makeatletter
 \renewenvironment{thebibliography}[1]{
@@ -195,8 +176,8 @@
     \endlist\frenchspacing}
 \makeatother
 
-\addtolength{\bibsep}{-0.5em}
-\setlength{\bibhang}{2em}
+\addtolength{\bibsep}{-0.5em}     % 缩小参考文献间的垂直间距
+\setlength{\bibhang}{2em}         % 每个条目自第二行起缩进的距离
 
 \makeatletter
     \def\@cite#1#2{\textsuperscript{[{#1\if@tempswa , #2\fi}]}}
@@ -204,7 +185,7 @@
 \bibpunct{[}{]}{,}{s}{}{,}
 
 %%%%%%%%%%%% 封面信息字段 %%%%%%%%%%%%%%%%%
-% 保留模板接口，便于换回天大封面时使用。
+% 保留天大模板的接口，便于日后换回天大封面时使用。
 \makeatletter
 \def\ctitle#1{\def\@ctitle{#1}}\def\@ctitle{}
 \def\cdegree#1{\def\@cdegree{#1}}\def\@cdegree{}
@@ -215,8 +196,6 @@
 \def\cnumber#1{\def\@cnumber{#1}}\def\@cnumber{}
 \def\cstuid#1{\def\@cstuid{#1}}\def\@cstuid{}
 \def\cdate#1{\def\@cdate{#1}}\def\@cdate{}
-\long\def\cabstract#1{\long\def\@cabstract{#1}}\long\def\@cabstract{}
-\long\def\eabstract#1{\long\def\@eabstract{#1}}\long\def\@eabstract{}
 \def\ckeywords#1{\def\@ckeywords{#1}}\def\@ckeywords{}
 \def\ekeywords#1{\def\@ekeywords{#1}}\def\@ekeywords{}
 \def\cheading#1{\def\@cheading{#1}}\def\@cheading{}
@@ -224,7 +203,9 @@
 \makeatother
 
 %%%%%%%%%%%% 封面 %%%%%%%%%%%%%%%%%
-% 与原报告一致：直接使用原报告第一页整页图像。
+% 与原报告保持一致：直接使用原报告第一页的整页海报图作为封面。
+% 若需换回天大封面（校名 + 校徽 + 学院/专业/年级/姓名/学号），
+% 可用 git 历史恢复 figures/Tjulogo.eps、figures/tju.eps 并替换此处的 \makecover。
 \newcommand{\makecover}{%
   \begin{titlepage}%
     \thispagestyle{empty}%
@@ -233,5 +214,4 @@
     \null
   \end{titlepage}%
   \ClearShipoutPictureBG
-  \setcounter{page}{1}%
 }

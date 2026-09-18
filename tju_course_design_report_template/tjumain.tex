@@ -11,12 +11,33 @@
 \graphicspath{{figures/}}                            % 定义所有的图片在 figures 子目录下
 \begin{document}                                     % 开始全文
 	\frontmatter                                     % 以下是论文导言部分，包括论文的封面和中文目录
+	\fancypagestyle{plain}{							 % 正文前（目录）无页眉，仅小五页码
+		\fancyhf{}
+		\renewcommand{\headrulewidth}{0 pt}
+		\fancyfoot[C]{\song\xiaowu~\thepage~}
+	}
 
 	\makecover 			% 封面（与原报告一致的整页图像）
 
 	\include{setup/toc} % 目录
 
 	\mainmatter\defaultfont\sloppy\raggedbottom
+	\makeatletter
+	\fancypagestyle{plain}{                              % 正文页眉页脚：五号宋体页眉 + 横线
+		\fancyhf{}
+		\fancyhead[C]{\song\wuhao \@cheading}            % 页眉格式
+		\fancyfoot[C]{\song\xiaowu ~\thepage~}           % 页脚格式
+		\renewcommand{\headrulewidth}{0.5pt}
+		\renewcommand{\footrulewidth}{0pt}
+	}
+	\makeatother
+	\pagestyle{plain}
+	\pagenumbering{arabic}                               % 正文用阿拉伯数字编页
+	\setcounter{page}{1}                                 % 单独从 1 开始编页码
+	\titleformat{\chapter}{\centering\xiaosan\hei}{\chaptername}{2em}{} % 章标题：小三黑体居中
+	\titleformat{name=\chapter,numberless}{\centering\xiaosan\hei}{}{0pt}{}
+	\titlespacing{\chapter}{0pt}{0.1\baselineskip}{0.8\baselineskip}
+	\titlespacing*{name=\chapter,numberless}{0pt}{0.1\baselineskip}{0.8\baselineskip}
 
 	%%%%%% 这里是正文，每个文件对应正文中的一章 %%%%%%
 	\include{body/chapter1}

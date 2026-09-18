@@ -1,8 +1,16 @@
 % !Mode:: "TeX:UTF-8"
 
-% 目录。与原报告一致：封面不编号，目录与正文连续编号（不切换罗马数字）。
+% 目录：天大模板样式。
+% 目录页用罗马数字编页且不显示页眉（正文才显示），正文自 1 起用阿拉伯数字编页。
 \defaultfont
 \clearpage
-\pdfbookmark[0]{目录}{mulu}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\pagestyle{plain}                                    % 前置部分无页眉
+\titleformat{\chapter}{\centering\sanhao\hei}{\chaptername}{2em}{}          % 「目录」二字：三号黑体居中
+\titleformat{name=\chapter,numberless}{\centering\sanhao\hei}{}{0pt}{}
+\pdfbookmark[0]{目~~录}{mulu}
+\begingroup\linespread{1.25}\selectfont
 \tableofcontents                                     % 中文目录
+\endgroup
 \clearpage
